@@ -21,26 +21,26 @@
             @endif
 
             <div class="card card-primary">
-                <form action="{{ url('items/add') }}" method="POST">
+                <form action="{{ url('/items/update/'.$item->id) }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">商品名</label>
-                            <input type="text" class="form-control" placeholder="名前" name="name" value="{{$item->name}}">
+                            <input type="text" class="form-control" placeholder="名前" name="name" value="{{old('name',$item->name)}}">
                         </div>
 
                             <div class="form-group">
                             <label for="prefecture">種別</label>
                             <select id="type" class="form-control" name="type" placeholder="種別" type="text" >
-                            <option value="漫画" @if($item->type=="漫画") selected @endif>漫画</option>
-                            <option value="小説" @if($item->type=="小説") selected @endif>小説</option>
-                            <option value="雑誌" @if($item->type=="雑誌") selected @endif>雑誌</option>
-                            <option value="絵本" @if($item->type=="絵本") selected @endif>絵本</option>
+                            <option value="漫画" @if(old('type',$item->type)=="漫画") selected @endif>漫画</option>
+                            <option value="小説" @if(old('type',$item->type)=="小説") selected @endif>小説</option>
+                            <option value="雑誌" @if(old('type',$item->type)=="雑誌") selected @endif>雑誌</option>
+                            <option value="絵本" @if(old('type',$item->type)=="絵本") selected @endif>絵本</option>
                         </select>
                         </div>
                         <div class="form-group">
                             <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明" value="{{$item->detail}}">
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明" value="{{old('detail',$item->detail)}}">
                         </div>
                     </div>
 
