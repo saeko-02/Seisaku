@@ -37,7 +37,9 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td><a href="{{ url('items/edit/'.$item->id ) }}" class="btn btn-default">編集</a></td>
                                 </tr>
+
                             @endforeach
                         </tbody>
                     </table>
