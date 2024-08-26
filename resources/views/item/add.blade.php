@@ -29,9 +29,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
-                            
+                            <label for="prefecture">種別</label>
+                            <select id="type" class="form-control" name="type" placeholder="種別">
+                            <option value="">（選択してください）</option>
+                            <option value="漫画">漫画</option>
+                            <option value="小説">小説</option>
+                            <option value="雑誌">雑誌</option>
+                            <option value="絵本">絵本</option>
+                        </select>
                         </div>
 
                         <div class="form-group">
