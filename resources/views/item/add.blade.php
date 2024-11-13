@@ -20,12 +20,12 @@
             @endif
 
             <div class="card card-primary">
-                <form action="{{ url('items/add') }}" method="POST">
+                <form method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">日用品名</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="商品名">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+
                         </div>
 
                         <!-- ＜カテゴリを選択＞ -->
@@ -41,15 +41,6 @@
                         </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="price">価格/円</label>
-                            <input type="number" class="form-control" id="price" name="price" placeholder="金額">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="stock">在庫/個</label>
-                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫">
-                        </div>
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
@@ -61,7 +52,6 @@
                         <button type="submit" class="btn btn-primary">登録</button>
                     </div>
                 </form>
-                <a class="nav-link" href="{{ url('items/')}}" style="color:blue">戻る</a>
             </div>
         </div>
     </div>
