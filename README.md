@@ -1,43 +1,33 @@
-## 商品管理システム
+# 日用品管理システム
 
-### 環境構築手順
+## 概要
+このシステムでは、日用品の在庫管理を行うことができます。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+日用品の管理一覧画面から、日用品の編集・削除を行うことができます。
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 主な機能
+-ログイン・ログアウト機能
+-日用品一覧画面
+-日用品編集画面
+-日用品編集・削除機能
 
-* APP_KEY生成
+## 開発環境
+,,,
+PHP 8.2.12
+MySQL 
+Laravel 10.13.5
 
-    ```console
-    php artisan key:generate
-    ```
+## 設計書
 
-* Composerインストール
+https://drive.google.com/drive/folders/1ydHhgIxu4QSwEiKABTK01cbYe8xXsjd7?usp=drive_link
 
-    ```console
-    composer install
-    ```
+## システム閲覧
+https://techis-seisaku-60da5cb1350f.herokuapp.com/login
 
-* フロント環境構築
+## テストアカウント情報
+メールアドレス
+saeko@gmail.com
+パスワード
+12345678
 
-    ```console
-    npm ci
-    npm run build
-    ```
 
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```

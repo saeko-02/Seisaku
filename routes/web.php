@@ -28,6 +28,9 @@ Route::prefix('items')->group(function () {
     Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit']);
     Route::post('/update/{id}', [App\Http\Controllers\ItemController::class, 'update'])->name('items.update');
     Route::get('/destroy/{id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('id.destroy');
-
+// 検索画面
+    Route::get('/search', [App\Http\Controllers\ItemController::class, 'search'])->name('items.search');
+        // 検索画面でのクリアボタン処理
+        Route::get('/searchReset', [App\Http\Controllers\ItemController::class, 'searchReset'])->name('items.searchReset');
 });
 

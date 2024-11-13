@@ -142,34 +142,6 @@ return [
         'string' => ':attributeは:size文字で指定してください。',
         'array' => ':attributeは:size個指定してください。',
     ],
-    'starts_with' => ':attributeには、:valuesのどれかで始まる値を指定してください。',
-    'string' => ':attributeは文字列を指定してください。',
-    'timezone' => ':attributeには、有効なゾーンを指定してください。',
-    'unique' => ':attributeの値は既に存在しています。',
-    'uploaded' => ':attributeのアップロードに失敗しました。',
-    'uppercase' => ':attributeは、大文字のみで指定してください。',
-    'url' => ':attributeに正しい形式を指定してください。',
-    'ulid' => ':attributeに有効なULIDを指定してください。',
-    'uuid' => ':attributeに有効なUUIDを指定してください。',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
-    |
-    */
-
-    'custom' => [
-        '属性名' => [
-            'ルール名' => 'カスタムメッセージ',
-        ],
-        'terms' => [
-            'required' => '登録には規約への同意が必須となります。',
-        ],
     ],
 
     /*

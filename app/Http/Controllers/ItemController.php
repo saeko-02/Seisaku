@@ -19,36 +19,36 @@ class ItemController extends Controller
     }
 
     /**
-     * 商品一覧
+     * 日用品一覧
      */
     public function index()
     {
-        // 商品一覧取得
+        // 日用品一覧取得
         $items = Item::all();
+
+        // ページネーションを使用
+        $items = Item::paginate(10);
+
 
         return view('item.index', compact('items'));
     }
 
     /**
-     * 商品登録
+     * 日用品登録
      */
     public function add(Request $request)
     {
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-        $this->validate($request, [
-            'name' => 'required|max:100',
-            'type' => 'required|max:100',
-            'detail' => 'required|max:250',
 
-        ]);
-
-            // 商品登録
+            // 日用品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
                 'type' => $request->type,
+                'price' => $request->price,
+                'stock' => $request->stock,
                 'detail' => $request->detail,
             ]);
 
@@ -93,13 +93,6 @@ class ItemController extends Controller
 
         return redirect('items/')->with('success','項目が正常に更新されました。');
     }
-
-public function destroy($id)
-{
-    $item = Item::find($id);
-    $item->delete();
-    // 削除したら一覧画面にリダイレクト
-    return redirect('/items')->with('success', 'アイテムが削除されました');
 
         }
 
