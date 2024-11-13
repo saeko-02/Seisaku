@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use Illuminate\Validation\Rule;
+use Illuminate\Pagination\LengthAwarePaginator; // ここで正しくインポート
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -20,18 +22,22 @@ class ItemController extends Controller
     }
 
     /**
-     * 商品一覧
+     * 日用品一覧
      */
     public function index()
     {
-        // 商品一覧取得
+        // 日用品一覧取得
         $items = Item::all();
+
+        // ページネーションを使用
+        $items = Item::paginate(10);
+
 
         return view('item.index', compact('items'));
     }
 
     /**
-     * 商品登録
+     * 日用品登録
      */
     public function add(Request $request)
     {
@@ -41,13 +47,17 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
                 'type' => 'required',
+                'price' => 'required|integer|min:1',
+                'stock' => 'required|integer|min:0',
             ]);
 
-            // 商品登録
+            // 日用品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
                 'type' => $request->type,
+                'price' => $request->price,
+                'stock' => $request->stock,
                 'detail' => $request->detail,
             ]);
 
@@ -105,6 +115,36 @@ class ItemController extends Controller
     
             }
 
+            // 検索画面処理
+            public function search(Request $request)
+            {
+                // バリデーションの定義
+                $request->validate([
+                    'keyword' => 'nullable|string|max:255',  // キーワード検索は任意の文字列
+                ]);
+
+                $keyword = $request->input('keyword'); //キーワード
+                $items = Item::query();
+
+                    // キーワード検索
+                    if ($keyword) {
+                        $items = Item::where('name', 'like', '%' . $keyword . '%')->paginate(3);
+                    } else {
+                        $items = Item::paginate(10);
+                    }
+
+                // dd($keyword);
+
+        
+        
+                return view('item.search', compact('items'));
+            }
+        
+            public function searchReset(Request $request)
+                {
+                    // 一覧画面にリダイレクト
+                    return redirect()->route('items.search');
+                }
 
 
         

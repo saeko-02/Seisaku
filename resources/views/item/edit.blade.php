@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品編集')
+@section('title', '日用品編集')
 
 @section('content_header')
-    <h1>商品編集</h1>
+    <h1>日用品編集</h1>
 @stop
 
 
@@ -25,17 +25,18 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">商品名</label>
-                            <input type="text" class="form-control" placeholder="名前" name="name" value="{{old('name',$item->name)}}">
+                            <label for="name">日用品名</label>
+                            <input type="text" class="form-control" placeholder="商品名" name="name" value="{{old('name',$item->name)}}">
                         </div>
 
                             <div class="form-group">
-                            <label for="prefecture">種別</label>
-                            <select id="type" class="form-control" name="type" placeholder="種別" type="text" >
-                            <option value="漫画" @if(old('type',$item->type)=="漫画") selected @endif>漫画</option>
-                            <option value="小説" @if(old('type',$item->type)=="小説") selected @endif>小説</option>
-                            <option value="雑誌" @if(old('type',$item->type)=="雑誌") selected @endif>雑誌</option>
-                            <option value="絵本" @if(old('type',$item->type)=="絵本") selected @endif>絵本</option>
+                            <label for="prefecture">カテゴリ</label>
+                            <select id="type" class="form-control" name="type" placeholder="カテゴリ" type="text" >
+                            <option value="キッチン" @if(old('type',$item->type)=="キッチン") selected @endif>キッチン</option>
+                            <option value="お風呂・トイレ" @if(old('type',$item->type)=="お風呂・トイレ") selected @endif>お風呂・トイレ</option>
+                            <option value="化粧品" @if(old('type',$item->type)=="化粧品") selected @endif>化粧品</option>
+                            <option value="医薬品" @if(old('type',$item->type)=="医薬品") selected @endif>医薬品</option>
+                            <option value="その他" @if(old('type',$item->type)=="その他") selected @endif>その他</option>
                         </select>
                         </div>
                         <div class="form-group">

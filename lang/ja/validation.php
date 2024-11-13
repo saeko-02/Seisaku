@@ -210,7 +210,7 @@ return [
         'minute'                   => '分',
         'mobile'                   => 'モバイル',
         'month'                    => '月',
-        'name'                     => '名前',
+        'name'                     => '商品名',
         'national_code'            => '国コード',
         'number'                   => '番号',
         'password'                 => 'パスワード',

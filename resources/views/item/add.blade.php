@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品登録')
+@section('title', '日用品登録')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h1>日用品登録</h1>
 @stop
 
 @section('content')
@@ -24,20 +24,33 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">商品名</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <label for="name">日用品名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="商品名">
+                        </div>
+
+                        <!-- ＜カテゴリを選択＞ -->
+                        <div class="form-group">
+                            <label for="prefecture">カテゴリ</label>
+                            <select id="type" class="form-control" name="type" placeholder="カテゴリ">
+                            <option value="">（選択してください）</option>
+                            <option value="1">1.キッチン</option>
+                            <option value="2">2.お風呂・トイレ</option>
+                            <option value="3">3.化粧品</option>
+                            <option value="4">4.医薬品</option>
+                            <option value="5">5.その他</option>
+                        </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="prefecture">種別</label>
-                            <select id="type" class="form-control" name="type" placeholder="種別">
-                            <option value="">（選択してください）</option>
-                            <option value="漫画">漫画</option>
-                            <option value="小説">小説</option>
-                            <option value="雑誌">雑誌</option>
-                            <option value="絵本">絵本</option>
-                        </select>
+                            <label for="price">価格/円</label>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="金額">
                         </div>
+
+                        <div class="form-group">
+                            <label for="stock">在庫/個</label>
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫">
+                        </div>
+
                         <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
