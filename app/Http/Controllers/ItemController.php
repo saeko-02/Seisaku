@@ -92,6 +92,9 @@ class ItemController extends Controller
                 'name' => 'required|max:100',
                 'type' => 'required',
                 'detail' => 'nullable|max:255',
+                'stock' => 'required|integer|min:0',
+                'price' => 'required|integer|min:1',
+
     
             ]);
     

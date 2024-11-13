@@ -32,13 +32,24 @@
                             <div class="form-group">
                             <label for="prefecture">カテゴリ</label>
                             <select id="type" class="form-control" name="type" placeholder="カテゴリ" type="text" >
-                            <option value="キッチン" @if(old('type',$item->type)=="キッチン") selected @endif>キッチン</option>
-                            <option value="お風呂・トイレ" @if(old('type',$item->type)=="お風呂・トイレ") selected @endif>お風呂・トイレ</option>
-                            <option value="化粧品" @if(old('type',$item->type)=="化粧品") selected @endif>化粧品</option>
-                            <option value="医薬品" @if(old('type',$item->type)=="医薬品") selected @endif>医薬品</option>
-                            <option value="その他" @if(old('type',$item->type)=="その他") selected @endif>その他</option>
+                            <option value="1" @if(old('type',$item->type)== 1) selected @endif>1.キッチン</option>
+                            <option value="2" @if(old('type',$item->type)== 2) selected @endif>2.お風呂・トイレ</option>
+                            <option value="3" @if(old('type',$item->type)== 3) selected @endif>3.化粧品</option>
+                            <option value="4" @if(old('type',$item->type)== 4) selected @endif>4.医薬品</option>
+                            <option value="5" @if(old('type',$item->type)== 5) selected @endif>5.その他</option>
                         </select>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="price">価格/円</label>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="金額" value="{{old('price',$item->price)}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stock">在庫/個</label>
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫" value="{{old('stock',$item->stock)}}">
+                        </div>
+
                         <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明" value="{{old('detail',$item->detail)}}">
