@@ -21,6 +21,7 @@
                                 <th>価格/円</th>
                                 <th>在庫/個</th>
                                 <th>詳細</th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>
